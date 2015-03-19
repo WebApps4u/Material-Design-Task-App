@@ -1,0 +1,20 @@
+<md-content ng-controller = "todoController">
+    <md-card ng-repeat = "task in tasks" item = "task" class = "md-whiteframe-z1">
+        <div layout = "row" layout-align="space-between center">
+            <h2>{{task.task_name}}</h2>
+            <p>Subject: {{task.task_subject}}</p>
+        </div>
+        <md-checkbox ng-model="data.cb1" aria-label="Checkbox 1">
+            {{task.task_description}}
+        </md-checkbox>
+        <div layout = "row">
+            <md-button class="md-raised md-primary margin-padding" ng-controller="AppCtrl"
+             layout-align="center center" ng-click = "editTask($index)">Edit</md-button>
+            <md-button class="md-raised margin-padding"
+             layout-align="center center" ng-click = "openSheet()">Change priority</md-button>
+            <md-button class="" layout-align="center center" ng-click = "remove($index)">
+                <i class = "fa fa-trash fa-2x"></i>
+            </md-button>
+        </div>
+    </md-card>
+</md-content>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" ng-app = 'todo-app'>
+<head>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Testing Angular Material</title>
+
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="bower_components/angular-material/themes/blue-grey-theme.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="ng-material-floating-button/mfb/src/mfb.css">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body layout="column" ng-controller = "AppCtrl">
+    <section layout="row" md-swipe-right = "openLeft()" md-swipe-left = "closeLeft()" flex>
+        <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open=largeScreen>
+          <md-toolbar>
+              <h1 class="md-toolbar-tools">Categories</h1>
+          </md-toolbar>
+          <md-subheader class="md-primary">Zac's Lists</md-subheader>
+            <md-list ng-controller = "listController">
+              <md-item ng-repeat="list in lists" ng-click = "click()">
+                <md-item-content>
+                    <md-button flex class = "sideBar-button" layout = "horizontal">
+                        <div class="md-tile-content">
+                            <h3>{{list.list_name}}</h3>
+                        </div>
+                    </md-button>
+                </md-item-content>
+              </md-item>
+            </md-list>
+        </md-sidenav>
+        <!-- Main Content -->
+        <md-content layout = "column" flex>
+          <md-toolbar class = "mainToolbar" md-scroll-shrink>
+              <div layout = "row" layout-align="start center">
+                  <i class="fa fa-bars menuToggle" ng-click="toggleLeft()" hide-gt-md></i>
+                  <h1 class="md-toolbar-tools">Todo App</h1>
+                  <md-button ng-controller = "todoController" style = "padding-right: 15px;" ng-click = "newTask()">
+                      <i class="ion-plus-round"></i>
+                  </md-button>
+                  <md-button style = "padding-right: 15px;" ng-click = "openShareMenu()">
+                      <i class="ion-android-share-alt"></i>
+                  </md-button>
+              </div>
+          </md-toolbar>
+          <todo-item></todo-item>
+        </md-content>
+      </section>
+
+      <nav mfb-menu position="br" effect="zoomin" label="Add Task"
+           active-icon="ion-edit" resting-icon="ion-plus-round"
+           toggling-method="click">
+        <a mfb-button icon="ion-ios-settings" label="Settings"></a>
+      </nav>
+
+    <script src="./bower_components/angular/angular.js"></script>
+    <script src="./bower_components/angular-route/angular-route.js"></script>
+    <script src="./bower_components/angular-aria/angular-aria.js"></script>
+    <script src="ng-material-floating-button/src/mfb-directive.js"></script>
+    <script src="./bower_components/angular-animate/angular-animate.js"></script>
+    <script src="./bower_components/angular-material/angular-material.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
