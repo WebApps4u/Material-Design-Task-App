@@ -2,7 +2,7 @@
 Work in progress — basically a means of learning Angular Material (and Angular in general).
 
 ##Todo
- - Connect tasks to google drive so that a user can log in with google and save tasks to the cloud (similar to stackEdit)
+ - Connect to Fireblase with AngularFire to keep track of user's tasks
  - Fix bug when deleting a task
  - Route different lists so that the user can switch between them
  - Add ability to edit tasks
