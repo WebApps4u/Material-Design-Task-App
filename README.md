@@ -2,7 +2,7 @@
 Work in progress — basically a means of learning Angular Material (and Angular in general).
 
 ##Todo
- - Connect to Fireblase with AngularFire to keep track of user's tasks
+ - Connect to Firebase with AngularFire to keep track of user's tasks
  - Fix bug when deleting a task
  - Route different lists so that the user can switch between them
  - Add ability to edit tasks
