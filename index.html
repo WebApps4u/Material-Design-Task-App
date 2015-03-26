@@ -16,7 +16,7 @@
 
     <md-toolbar class = "mainToolbar">
         <div layout = "row" layout-align="start center">
-            <i class="fa fa-bars menuToggle" ng-click="toggleLeft()" hide-gt-md></i>
+            <i class="fa fa-bars menuToggle" ng-click="toggleLeft()"></i>
             <h1 class="md-toolbar-tools">Todo App</h1>
             <md-button ng-controller = "todoController" style = "padding-right: 15px;" ng-click = "newTask()">
                 <i class="ion-plus-round"></i>
@@ -27,13 +27,13 @@
         </div>
         <md-tabs class="md-primary" md-selected="tab1" md-stretch-tabs>
           <md-tab id="tab1" aria-controls="tab1-content">
-            Item One
+            Personal
           </md-tab>
           <md-tab id="tab2" aria-controls="tab2-content">
-            Item Two
+            School
           </md-tab>
           <md-tab id="tab3" aria-controls="tab3-content">
-            Item Three
+            Work
           </md-tab>
         </md-tabs>
     </md-toolbar>
@@ -51,7 +51,7 @@
             </div>
             <h1 class = "md-toolbar-tools" ng-show = "$mdMedia('gt-md')">Sidebar</h1>
           </md-toolbar>
-          <md-list ng-controller = "listController">
+          <md-list ng-controller = "sideNavController">
               <md-item ng-repeat="menuItem in topMenu">
                 <a>
                   <md-item-content md-ink-ripple layout="row" layout-align="start center">

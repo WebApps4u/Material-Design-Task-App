@@ -79,8 +79,8 @@ app.controller("shareController", function($scope, $mdBottomSheet){
 
 });
 
-//List controller
-app.controller("listController", function($scope){
+//sideNav Controller
+app.controller("sideNavController", function($scope){
     $scope.topMenu = [
         {
             "name" : "Personal",
