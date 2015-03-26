@@ -80,7 +80,7 @@ app.controller("shareController", function($scope, $mdBottomSheet){
 });
 
 //sideNav Controller
-app.controller("sideNavController", function($scope){
+app.controller("sideNavController", function($scope, $mdDialog){
     $scope.topMenu = [
         {
             "name" : "Personal",
@@ -100,19 +100,46 @@ app.controller("sideNavController", function($scope){
         {
             "name" : "Personal",
             "icon" : "dashboard"
-        },
-        {
-            "name" : "Settings",
-            "icon" : "settings"
-        },
+        }
     ];
+
+    $scope.showSettings = function(ev){
+        $mdDialog.show({
+          controller: DialogController,
+          templateUrl: 'settings.html',
+          targetEvent: ev,
+        });
+
+    }
+
+    function DialogController($scope, $mdDialog) {
+        $scope.saveChanges = function(idx){
+            //change the settings
+            $mdDialog.hide();
+        }
+        $scope.hide = function() {
+          $mdDialog.hide();
+        };
+        $scope.cancel = function() {
+          $mdDialog.cancel();
+        };
+        $scope.answer = function(answer) {
+          $mdDialog.hide(answer);
+        };
+    };
 });
 
 //Todo Controller
 app.controller('todoController', function($scope, $mdDialog, shareTasks){
 
     $scope.tasks = shareTasks.getTasks();
-
+    $scope.changeStar = function(starred){
+        if (starred){
+            return "#FFEB3B";
+        }else{
+            return "#9E9E9E";
+        }
+    }
     $scope.remove = function( ev, idx ){
 
         var confirm = $mdDialog.confirm()

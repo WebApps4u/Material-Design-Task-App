@@ -1,0 +1,31 @@
+<!-- If screen satisfies a gt-md media query, show this, else use a full page change (ngroute??) -->
+
+<md-dialog aria-label="Settings" layout-margin ng-controller = "settingsController">
+    <md-content>
+        <!-- name input -->
+        <md-input-container>
+          <label>Title</label>
+          <input ng-model="task.task_name" md-maxlength="30">
+        </md-input-container>
+        <!-- task input -->
+        <md-input-container>
+          <label>Task</label>
+          <input md-maxlength="50" ng-model="task.task_description">
+        </md-input-container>
+        <!-- subject select -->
+        <div layout="row">
+            <p>Subject:  </p>
+            <md-select ng-model="task.task_subject" flex class = "modalSelect">
+                <md-option value="Science">Science</md-option>
+                <md-option value="Art">Art</md-option>
+                <md-option value="History">History</md-option>
+                <md-option value="Math">Math</md-option>
+            </md-select>
+        </div>
+        <!-- bottom buttons -->
+        <div layout = "row">
+            <md-button class = "md-raised md-primary margin-padding" ng-click = "setCurrentIndex(currentIndex); saveChanges(task)">Save</md-button>
+            <md-button class = "md-raised margin-padding" ng-click="closeDialog()">Discard</md-button>
+        </div>
+    </md-content>
+</md-dialog>
