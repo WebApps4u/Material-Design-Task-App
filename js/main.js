@@ -1,4 +1,4 @@
-var app = angular.module("todo-app", ['ngMaterial', 'ng-mfb']);
+var app = angular.module("todo-app", ['ngMaterial', 'ng-mfb', "chats", "ngMdIcons"]);
 
 app.directive("todoItem", function(){
     return{
@@ -18,19 +18,20 @@ app.controller('AppCtrl', function($scope, $timeout, $mdDialog, $mdSidenav, $log
             });
       };
 
-      $scope.largeScreen = $mdMedia('gt-md');
-
       $scope.openLeft = function() {
-          $mdSidenav('left').open().then(function(){
-              $log.debug("open LEFT is done");
-          });
+          $mdSidenav('left').open()
+              .then(function(){
+                  $log.debug("toggle left is done");
+              });
       };
 
       $scope.closeLeft = function() {
-          $mdSidenav('left').close().then(function(){
-              $log.debug("close LEFT is done");
-          });
+          $mdSidenav('left').close()
+              .then(function(){
+                  $log.debug("toggle left is done");
+              });
       };
+
       //bottom sheet opener
       $scope.openSheet = function(){
           $mdBottomSheet.show({
@@ -53,6 +54,7 @@ app.controller('AppCtrl', function($scope, $timeout, $mdDialog, $mdSidenav, $log
       }
 
       $scope.click = function(){
+          //routing needs to be implemented here
           alert("clicked");
       }
 });
@@ -79,18 +81,29 @@ app.controller("shareController", function($scope, $mdBottomSheet){
 
 //List controller
 app.controller("listController", function($scope){
-    $scope.lists = [
+    $scope.topMenu = [
         {
-            "list_name" : "Personal",
-            "list_icon" : "ion-plus-round"
+            "name" : "Personal",
+            "icon" : "dashboard"
         },
         {
-            "list_name" : "School",
-            "list_icon" : "ion-plus-round"
+            "name" : "School",
+            "icon" : "group"
         },
         {
-            "list_name" : "Work",
-            "list_icon" : "ion-plus-round"
+            "name" : "Work",
+            "icom" : "message"
+        },
+    ];
+
+    $scope.secondMenu = [
+        {
+            "name" : "Personal",
+            "icon" : "dashboard"
+        },
+        {
+            "name" : "Settings",
+            "icon" : "settings"
         },
     ];
 });
