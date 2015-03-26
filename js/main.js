@@ -209,7 +209,7 @@ app.service('shareTasks', function () {
             {
             "task_name": "Task 3",
             "task_subject": "Science",
-            "task_description": "Fuck science in general"
+            "task_description": "Screw science in general"
             },
             {
             "task_name": "Task 4",
