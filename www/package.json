@@ -1,0 +1,14 @@
+{
+  "name": "TodoApp",
+  "version": "1.0.0",
+  "window": {
+    "toolbar": false
+  },
+  "description": "A simple task app writtten in HTML with Angular Material",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Zachary Marion",
+  "license": "MIT"
+}

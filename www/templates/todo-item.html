@@ -4,9 +4,11 @@
             <h2 flex>{{task.task_name}}</h2>
             <p flex style = "text-align: right;">Subject: {{task.task_subject}}</p>
         </div>
-        <md-checkbox ng-model="data.cb1" aria-label="Checkbox 1">
-            {{task.task_description}}
-        </md-checkbox>
+        <div layout = "row" flex>
+            <md-checkbox ng-model="data.cb1" aria-label="Checkbox 1">
+                {{task.task_description}}
+            </md-checkbox>
+        </div>
         <div layout = "row" layout-align="space-between center">
             <div layout="row">
                 <md-button class="md-raised md-primary margin-padding" ng-controller="AppCtrl"
