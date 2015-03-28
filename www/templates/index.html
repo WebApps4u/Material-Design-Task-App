@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" ng-app = 'todo-app'>
+<head>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Testing Angular Material</title>
+
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="ng-material-floating-button/mfb/src/mfb.css">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body layout="row" ng-controller = "AppCtrl" md-swipe-right="openLeft()" md-swipe-left="closeLeft()">
+
+    <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left"
+                md-is-locked-open="$media('gt-md')">
+      <md-toolbar class="md-tall md-hue-2" hide-gt-md>
+        <span flex></span>
+        <div layout="column" class="md-toolbar-tools-bottom inset">
+          <user-avatar></user-avatar>
+          <span></span>
+          <div>Firstname Lastname</div>
+          <div>email@domainname.com</div>
+        </div>
+      </md-toolbar>
+      <!-- shown if sidenav is locked open -->
+      <md-toolbar class="md-hue-2" hide-sm>
+          <div layout = "column">
+              <h1 class="md-toolbar-tools">Settings</h1>
+              <span id = "sidebar-text" flex></span>
+          </div>
+      </md-toolbar>
+      <md-list ng-controller = "sideNavController">
+          <md-item ng-repeat="menuItem in topMenu">
+            <a>
+              <md-item-content md-ink-ripple layout="row" layout-align="start center">
+                <div class="inset">
+                  <ng-md-icon icon="{{menuItem.icon}}"></ng-md-icon>
+                </div>
+                <div class="inset pointer">{{menuItem.name}}
+                </div>
+              </md-item-content>
+            </a>
+          </md-item>
+      <md-divider></md-divider>
+      <md-subheader>Management</md-subheader>
+      <md-item ng-repeat="menuItem in secondMenu">
+        <a>
+          <md-item-content md-ink-ripple layout="row" layout-align="start center">
+            <div class="inset">
+              <ng-md-icon icon="{{menuItem.icon}}"></ng-md-icon>
+            </div>
+            <div class="inset pointer">{{menuItem.name}}
+            </div>
+          </md-item-content>
+        </a>
+      </md-item>
+      <md-item>
+        <a>
+          <md-item-content md-ink-ripple layout="row" layout-align="start center" ng-click = "openSettings()">
+            <div class="inset">
+              <ng-md-icon icon="settings"></ng-md-icon>
+            </div>
+            <div class="inset pointer">Settings
+            </div>
+          </md-item-content>
+        </a>
+      </md-item>
+    </md-list>
+    </md-sidenav>
+
+    <div layout = "column" flex layout-fill>
+        <md-toolbar class = "mainToolbar">
+            <div layout = "row" layout-align="start center">
+                <i class="fa fa-bars menuToggle" ng-click="toggleLeft()" hide-gt-md></i>
+                <h1 class="md-toolbar-tools">Todo App</h1>
+                <md-button ng-controller = "todoController" style = "padding-right: 15px;" ng-click = "newTask()">
+                    <i class="ion-plus-round"></i>
+                </md-button>
+                <md-button style = "padding-right: 15px;" ng-click = "openShareMenu()">
+                    <i class="ion-android-share-alt"></i>
+                </md-button>
+            </div>
+            <md-tabs class="md-primary" md-selected="tab1" md-stretch-tabs>
+              <md-tab id="tab1" aria-controls="tab1-content">
+                Current
+              </md-tab>
+              <md-tab id="tab2" aria-controls="tab2-content">
+                Past
+              </md-tab>
+              <md-tab id="tab3" aria-controls="tab3-content">
+                Starred
+              </md-tab>
+            </md-tabs>
+        </md-toolbar>
+        <div layout="column">
+            <md-content flex>
+                <div layout="row" flex id="content">
+                    <md-content layout = "column" flex = 3>
+                      <todo-item></todo-item>
+                    </md-content>
+                    <!-- TESTING FOR FIREBASE W/ ANGULAR FIRE
+                    <md-content ng-controller = "ChatCtrl" flex = 1>
+                        <md-button ng-click = "newTask()">Create new card</md-button>
+                        <md-card ng-repeat = "message in messages" class = "md-whiteframe-z1">
+                            <h3>{{message.task_name}}</h3>
+                            <h3>{{message.task_subject}}</h3>
+                            <h3>{{message.task_description}}</h3>
+                        </md-card>
+                    </md-content>
+                    -->
+                </div>
+            </md-content>
+        </div>
+    </div>
+
+    <nav mfb-menu position="br" effect="zoomin" label="Add Task"
+         active-icon="ion-edit" resting-icon="ion-plus-round"
+         toggling-method="hover">
+      <a mfb-button icon="ion-university" label="Add Subject"></a>
+    </nav>
+
+    <script src="./bower_components/angular/angular.js"></script>
+    <script src="./bower_components/angular-route/angular-route.js"></script>
+    <script src="./bower_components/angular-aria/angular-aria.js"></script>
+    <script src="ng-material-floating-button/src/mfb-directive.js"></script>
+    <script src="./bower_components/angular-animate/angular-animate.js"></script>
+    <script src="./bower_components/angular-material/angular-material.js"></script>
+    <!-- Icons -->
+    <script src="//cdn.jsdelivr.net/angular-material-icons/0.4.0/angular-material-icons.min.js"></script>
+
+    <!-- Firebase -->
+    <script src="https://cdn.firebase.com/js/client/2.2.2/firebase.js"></script>
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>
+
+    <script src="js/main.js"></script>
+    <script src="js/firebaseMessages.js"></script>
+</body>
+</html>

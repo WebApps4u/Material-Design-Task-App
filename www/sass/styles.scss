@@ -1,0 +1,46 @@
+md-card{
+    //background: rgb(190,190,190);
+    padding: 10px;
+}
+
+.margin-padding{
+    margin: 5px;
+}
+.menuToggle{
+    padding-left: 7px;
+}
+
+.modalSelect, .slider{
+    margin-left: 6px;
+}
+
+md-dialog{
+    width: 50%;
+}
+
+.sideBar-button{
+    height: 44px;
+}
+
+.menuBtn {
+  background-color: transparent;
+  border: none;
+  height: 38px;
+  margin: 16px 0 0 16px;
+  width: 36px;
+}
+
+#sidebar-text{
+    padding: 5px;
+    padding-bottom: 43px;
+}
+
+.pointer{
+    cursor: default;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
