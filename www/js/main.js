@@ -197,25 +197,37 @@ app.controller('todoController', function($scope, $mdDialog, shareTasks){
 app.service('shareTasks', function () {
         var tasks = [
             {
-            "task_name": "Task 1",
+            "task_name": "Material Editor",
             "task_subject": "History",
-            "task_description": "Turn in the History Essay"
+            "task_description": "",
+            "sub_tasks": [
+                "Add a file-structure sidebar",
+                "Find a way to access _ace in the .run function",
+                "Add ability to open/close files",
+                "Add functionality to tabs with ui-route"
+            ]
             },
             {
-            "task_name": "Task 2",
+            "task_name": "Material Todo",
             "task_subject": "Math",
-            "task_description": "Study for the Math Midterm"
+            "task_description": "",
+            "sub_tasks": [
+                "Add functionality to tabs with ui-route",
+                "Add functionality to sideBar with ui-route",
+                "Add functionality to floating nav",
+                "Resolve reponsiveness issue with sidebar",
+                "Add persistent data by linking with AngularFire",
+                "Make tasks input using md-chips"
+            ]
             },
             {
-            "task_name": "Task 3",
+            "task_name": "Material Writer",
             "task_subject": "Science",
-            "task_description": "Screw science in general"
+            "task_description": "Screw science in general",
+            "sub_tasks": [
+                "Create the application, for starters"
+            ]
             },
-            {
-            "task_name": "Task 4",
-            "task_subject": "Art",
-            "task_description": "Wait I'm not taking art..."
-            }
         ];
 
         return {
